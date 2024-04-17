@@ -1,0 +1,16 @@
+---
+- name: Nexus - QoS
+  hosts: all
+  gather_facts: no
+  connection: ansible.netcommon.network_cli  
+  
+  
+  tasks:
+    - name: Nexus-QoS     
+      cisco.nxos.nxos_config:
+        src: "{{ playbook_dir }}/Nexus_QoS_03052022.txt"
+
+      register: Policy
+
+    - name: ImprimirConfig
+      debug: var=Policy
