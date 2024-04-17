@@ -1,0 +1,29 @@
+policy-map QoS_CORE
+ class REAL-TIME
+  priority level 1 
+  police rate percent 5 
+   conform-action transmit
+   exceed-action drop
+  ! 
+ ! 
+ class VIDEO
+  bandwidth percent 20 
+ ! 
+ class CONTROL
+  bandwidth percent 10 
+ ! 
+ class SIGNALING
+  bandwidth percent 10 
+ ! 
+ class MANAGEMENT
+  bandwidth percent 10 
+ ! 
+ class DATA
+  bandwidth percent 20 
+ ! 
+ class class-default
+  random-detect default 
+ ! 
+ end-policy-map
+! 
+end
