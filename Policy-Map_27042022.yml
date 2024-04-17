@@ -1,0 +1,16 @@
+---
+- name: Configuracion_Policy-Map
+  hosts: PE
+  gather_facts: no
+  connection: ansible.netcommon.network_cli  
+  
+  
+  tasks:
+    - name: Policy-Map     
+      cisco.iosxr.iosxr_config:
+        src: "{{ playbook_dir }}/Policy-Map_27042022.txt"
+
+      register: Policy
+
+    - name: ImprimirConfig
+      debug: var=Policy
