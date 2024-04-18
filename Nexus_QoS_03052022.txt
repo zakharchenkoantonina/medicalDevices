@@ -1,0 +1,8 @@
+policy-map type queuing QoS_CORE
+  class type queuing c-out-q3
+    priority level 1
+  class type queuing c-out-q2
+    bandwidth percent 20 
+  class type queuing c-out-q1
+    bandwidth percent 30 
+  class type queuing c-out-q-default
