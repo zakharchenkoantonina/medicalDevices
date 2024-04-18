@@ -1,0 +1,16 @@
+---
+- name: Configuracion_Class-Map
+  hosts: PE
+  gather_facts: no
+  connection: ansible.netcommon.network_cli  
+  
+  
+  tasks:
+    - name: Class-Map     
+      cisco.iosxr.iosxr_config:
+        src: "{{ playbook_dir }}/Class-Map_27042022.txt"
+
+      register: Class
+
+    - name: ImprimirConfig
+      debug: var=Class
