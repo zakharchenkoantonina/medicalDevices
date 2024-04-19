@@ -1,0 +1,38 @@
+class-map match-any DATA
+ match mpls experimental topmost 1
+ match precedence priority
+ match dscp af11 af12
+ end-class-map
+!
+class-map match-any VIDEO
+ match mpls experimental topmost 4
+ match precedence flash-override
+ match dscp af41 af42 af43
+ end-class-map
+!
+class-map match-any CONTROL
+ match mpls experimental topmost 6
+ match precedence internet
+ match dscp cs6 
+ end-class-map
+!
+class-map match-any REAL-TIME
+ match mpls experimental topmost 5
+ match precedence critical
+ match dscp ef
+ match access-group ipv4 BFD
+ end-class-map
+!
+class-map match-any SIGNALING
+ match mpls experimental topmost 3
+ match precedence flash
+ match dscp af31
+ end-class-map
+!
+class-map match-any MANAGEMENT
+ match mpls experimental topmost 2
+ match precedence immediate
+ match dscp af21
+ end-class-map
+!
+   
